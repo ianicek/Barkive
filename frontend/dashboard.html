@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Barkive</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        .menu {
+            background-color: #ffcc80;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-top: 2px solid #4d2600;
+            padding-top: 10px;
+        }
+        .menu ul li {
+            display: inline;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #4d2600;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .menu ul li a:hover {
+            background-color: #4d2600;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <div class="logo"><img src="barkive2.png" alt="Barkive Logo"></div>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="medical.html">Medical</a></li>
+            <li><a href="new_owner.html">New Owner</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Sign Out</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="profile-box">
+            <h2>Profile Information</h2>
+            <p><strong>Name:</strong> (Pulled from user database)</p>
+            <p><strong>Email:</strong> (Pulled from user database)</p>
+            <p><strong>Phone:</strong> (Pulled from user database)</p>
+        </div>
+        <div class="pet-box">
+            <h2>Pet Information</h2>
+            <p><strong>Pet Name:</strong> (Pulled from user database)</p>
+            <p><strong>Medication:</strong> (Pulled from user database)</p>
+            <p><strong>Appointment:</strong> (Pulled from user database)</p>
+        </div>
+        <div class="image-slider">
+            <img src="dog4.jpg" alt="Dog 1" class="slide">
+            <img src="dog2.webp" alt="Dog 2" class="slide">
+            <img src="dog3.jpg" alt="Dog 3" class="slide">
+        </div>
+        <div class="about-box">
+            <h2>About Barkive</h2>
+            <p>Barkive is a comprehensive pet management system designed to help pet owners keep track of medical records, contact veterinarians, and manage essential pet care details all in one place.</p>
+        </div>
+    </div>
+    <script>
+        let index = 0;
+        function rotateImages() {
+            let slides = document.querySelectorAll(".slide");
+            slides.forEach((img, i) => {
+                img.style.display = (i === index) ? "block" : "none";
+            });
+            index = (index + 1) % slides.length;
+        }
+        setInterval(rotateImages, 3000);
+        rotateImages();
+    </script>
+</body>
+</html>
