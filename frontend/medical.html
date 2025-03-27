@@ -4,107 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health & Medical - Barkive</title>
-    <link rel="stylesheet" href="medical.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <style>
-        .insurance { color: blue; }
-        .dog-database { color: green; }
-        .veterinarian { color: orange; }
-
-        .logo img { 
-            max-width: 150px; 
-            height: auto; 
-            display: block; 
-            margin: 0 auto; 
-        }
-
-        .menu-divider {
-            width: 100%;
-            height: 3px;
-            background-color: #4d2600;
-            margin: 10px 0;
-        }
-
-        .menu h1 {
-            font-size: 28px;
-            color: #4d2600;
-            text-align: center;
-            margin-bottom: 5px;
+        nav{
+            background-image: linear-gradient(to right, #CABCAF,#D6CEC1,#EAE1D8, #F1E8E3);
         }
     </style>
 </head>
-<body>
-    <div class="menu">
-        <h1>Barkive</h1>
-        <div class="logo">
-            <img src="bonelogo.png" alt="Barkive Logo">
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="bonelogo.png" alt="Barkive Logo" width="150">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="medical.html">Medical</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">New Owner</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="login.html">Sign Out</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="menu-divider"></div>
-        <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="medical.html">Medical</a></li>
-            <li><a href="#">New Owner</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="login.html">Sign Out</a></li>
-        </ul>
-    </div>
-    <div class="content">
-        <div class="box">
-            <h2>Pet Medical Records</h2>
-            <table>
-                <tr>
-                    <th>Pet Name</th>
-                    <th>Breed</th>
-                    <th>Age</th>
-                    <th>Weight</th>
-                </tr>
-                <tr>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th>Insurance</th>
-                    <th>Veterinarian</th>
-                    <th>Medications</th>
-                    <th>Vaccinations</th>
-                    <th>Allergies</th>
-                </tr>
-                <tr>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                    <td class="dog-database">(Pulled from pet database)</td>
-                    <td class="dog-database">(Pulled from dog database)</td>
-                    <td class="dog-database">(Pulled from dog database)</td>
-                </tr>
-            </table>
+    </nav>
+    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-3">
+                    <h2 class="text-center text-dark">Pet Medical Records</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-warning">
+                                <tr>
+                                    <th>Pet Name</th>
+                                    <th>Breed</th>
+                                    <th>Age</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>(Pulled from pet database)</td>
+                                    <td>(Pulled from pet database)</td>
+                                    <td>(Pulled from pet database)</td>
+                                    <td>(Pulled from pet database)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="box">
-            <h2>Emergency Information</h2>
-            <p>If your pet is experiencing a medical emergency, please contact your nearest veterinary hospital immediately.</p>
-            <p class="veterinarian"><strong>Emergency Vet:</strong> (Pulled from insurance database)</p>
-            <p class="veterinarian">Phone: (Pulled from insurance database)</p>
-            <p class="veterinarian">Location: (Pulled from insurance database)</p>
-        </div>
-        <div class="box">
-            <h2>Insurance Contact</h2>
-            <p class="insurance"><strong>(Pulled from insurance database)</strong></p>
-            <p class="insurance">Provider: (Pulled from insurance database)</p>
-            <p class="insurance">Coverage: (Pulled from insurance database)</p>
-            <p class="insurance">Accident Awaiting Period: (Pulled from insurance database)</p>
-            <p class="insurance">Illness Waiting Period: (Pulled from insurance database)</p>
-            <p class="insurance">Website: (Pulled from insurance database)</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h2 class="text-dark">Emergency Information</h2>
+                    <p>If your pet is experiencing a medical emergency, please contact your nearest veterinary hospital immediately.</p>
+                    <p><strong>Emergency Vet:</strong> (Pulled from insurance database)</p>
+                    <p><strong>Phone:</strong> (Pulled from insurance database)</p>
+                    <p><strong>Location:</strong> (Pulled from insurance database)</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h2 class="text-dark">Insurance Contact</h2>
+                    <p><strong>Provider:</strong> (Pulled from insurance database)</p>
+                    <p><strong>Coverage:</strong> (Pulled from insurance database)</p>
+                    <p><strong>Website:</strong> (Pulled from insurance database)</p>
+                </div>
+            </div>
         </div>
 
-        <div class="box">
-            <h2>Veterinarian Contact</h2>
-            <p class="veterinarian"><strong>(Pulled from veterinarian database)</strong></p>
-            <p class="veterinarian">(Pulled from veterinarian database)</p>
-            <p class="veterinarian">Phone: (Pulled from veterinarian database)</p>
-            <p class="veterinarian">Email: (Pulled from veterinarian database)</p>
-            <p class="veterinarian">Address: (Pulled from veterinarian database)</p>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card p-3">
+                    <h2 class="text-dark">Veterinarian Contact</h2>
+                    <p><strong>Vet Name:</strong> (Pulled from veterinarian database)</p>
+                    <p><strong>Phone:</strong> (Pulled from veterinarian database)</p>
+                    <p><strong>Email:</strong> (Pulled from veterinarian database)</p>
+                    <p><strong>Address:</strong> (Pulled from veterinarian database)</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
