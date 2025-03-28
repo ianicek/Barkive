@@ -35,7 +35,7 @@
     </nav>
 <div class="container mt-4">
     <div class="card shadow p-4">
-    <!-- Search Bar Container -->
+    <!-- Pet Search Bar Container -->
     <div class="container mt-4">
         <h2 class="text-center mb-3">Pet Search</h2>
         <div class="input-group mb-3">
@@ -57,7 +57,7 @@
                     <tr>
                         <td>American Foxhound</td>
                         <td>Active and alert dogs that excel in hunting and retrieving.</td>
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Affenpinscher', 'Active and alert dogs that excel in hunting and retrieving.')">Learn More</button></td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('American Foxhound', 'Active and alert dogs that excel in hunting and retrieving.')">Learn More</button></td>
                     </tr>
                     <tr>
                         <td>Bloodhound</td>
@@ -73,8 +73,12 @@
             </table>
         </div>
     </div>
+    </div>
+    </div>
 
-     <!-- Search Bar Container -->
+    <div class="container mt-4">
+        <div class="card shadow p-4">
+     <!-- Insurance Search Bar Container -->
      <div class="container mt-4">
         <h2 class="text-center mb-3">Insurance Search</h2>
         <div class="input-group mb-3">
@@ -107,6 +111,48 @@
                         <td>Spot</td>
                         <td>Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.</td>
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Spot', 'Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.')">Learn More</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+     </div>
+</div>
+
+<div class="container mt-4">
+        <div class="card shadow p-4">
+     <!-- Medication Search Bar Container -->
+     <div class="container mt-4">
+        <h2 class="text-center mb-3">Medication Search</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search for medication information..." aria-label="Search">
+            <button class="btn btn-warning" type="button">Search</button>
+        </div>
+    
+        <!-- Medication Groups Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-warning">
+                    <tr>
+                        <th>Medication</th>
+                        <th>Quick Info</th>
+                        <th>More Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apoquel</td>
+                        <td>Treats itching, skin allergies, and inflammation.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalMedication" onclick="updateModalContentMedication('Apoquel', 'Treats itching, skin allergies, and inflammation.')">Learn More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Clavamox</td>
+                        <td>Antibiotic for skin, ear, and urinary tract infections.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalMedication" onclick="updateModalContentMedication('Clavamox', 'Antibiotic for skin, ear, and urinary tract infections.')">Learn More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Rimadyl</td>
+                        <td>NSAID used to treat arthritis and pain relief.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalMedication" onclick="updateModalContentMedication('Rimadyl', 'NSAID used to treat arthritis and pain relief..')">Learn More</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -165,6 +211,28 @@
             </div>
         </div>
     </div>
+
+    <!-- MEDICATION Modal -->
+    <div class="modal fade" id="learnMoreModalMedication" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learnMoreModalLabel">More Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="modalBrand"></h4>
+                    <p id="modalInformation"></p>
+                    <p><strong>Price:</strong> (pulled from medication table)</p>
+                    <p><strong>Generic Name:</strong> (pulled from medication table)</p>
+                    <p><strong>Side Effects:</strong> (pulled from medication table)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
  </div>
 </div>
     <script>
@@ -176,6 +244,10 @@
         function updateModalContentInsurance(insurance, coverage) {
             document.getElementById('modalInsurance').textContent = insurance;
             document.getElementById('modalCoverage').textContent = coverage;
+        }
+        function updateModalContentMedication(brand, information) {
+            document.getElementById('modalBrand').textContent = brand;
+            document.getElementById('modalInformation').textContent = information;
         }
     </script>
 </body>
