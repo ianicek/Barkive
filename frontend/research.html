@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <title>Pet Search - Barkive</title>
+    <style>
+        nav {
+            background-image: linear-gradient(to right, #CABCAF, #D6CEC1, #EAE1D8, #F1E8E3);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-warning navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="barkive2.png" alt="Barkive Logo" class="img-fluid" style="max-width: 150px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fw-bold text-dark" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-dark" href="medical.html">Medical</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-dark" href="research.html">Pet Research</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-dark" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-dark" href="login.html">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container mt-4">
+    <div class="card shadow p-4">
+    <!-- Search Bar Container -->
+    <div class="container mt-4">
+        <h2 class="text-center mb-3">Pet Search</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search for pet information..." aria-label="Search">
+            <button class="btn btn-warning" type="button">Search</button>
+        </div>
+    
+        <!-- Pet Groups Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-warning">
+                    <tr>
+                        <th>Breed</th>
+                        <th>Description</th>
+                        <th>More Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>American Foxhound</td>
+                        <td>Active and alert dogs that excel in hunting and retrieving.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Affenpinscher', 'Active and alert dogs that excel in hunting and retrieving.')">Learn More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bloodhound</td>
+                        <td>Known for their keen sense of smell and hunting skills.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Bloodhound', 'Known for their keen sense of smell and hunting skills.')">Learn More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Doberman</td>
+                        <td>Strong and intelligent dogs bred for guarding and rescuing.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Doberman', 'Strong and intelligent dogs bred for guarding and rescuing.')">Learn More</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+     <!-- Search Bar Container -->
+     <div class="container mt-4">
+        <h2 class="text-center mb-3">Insurance Search</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search for insurance information..." aria-label="Search">
+            <button class="btn btn-warning" type="button">Search</button>
+        </div>
+    
+        <!-- Insurance Groups Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-warning">
+                    <tr>
+                        <th>Insurance</th>
+                        <th>Coverage Area</th>
+                        <th>More Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ASPCA</td>
+                        <td>Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('ASPCA', 'Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.')">Learn More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Fetch</td>
+                        <td>Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Fetch', 'Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.')">Learn More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Spot</td>
+                        <td>Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.</td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Spot', 'Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.')">Learn More</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- PET Modal -->
+    <div class="modal fade" id="learnMoreModalPet" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learnMoreModalLabel">More Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="modalBreed"></h4>
+                    <p id="modalDescription"></p>
+                    <br>
+                    <p><strong>Height:</strong> (min-max pulled from dog_breed table)</p>
+                    <p><strong>Weight:</strong> (min-max pulled from dog_breed table)</p>
+                    <p><strong>Life Expectancy:</strong> (min-max pulled from dog_breed)</p>
+                    <br>
+                    <p><strong>Personality:</strong> (value and category from dog_breed)</p>
+                    <p><strong>Trainability:</strong> (value and category from dog_breed)</p>
+                    <p><strong>Energy:</strong> (value and category from dog_breed)</p>
+                    <p><strong>Shedding:</strong> (value and category from dog_breed)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INSURANCE Modal -->
+    <div class="modal fade" id="learnMoreModalInsurance" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learnMoreModalLabel">More Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="modalInsurance"></h4>
+                    <p id="modalCoverage"></p>
+                    <br>
+                    <p><strong>Coverage Cost:</strong> (min-max from dog_insurance)</p>
+                    <p><strong>Accident Waiting Period:</strong> (from dog_insurance)</p>
+                    <p><strong>Illness Waiting Period:</strong> (from dog_insurance)</p>
+                    <br>
+                    <p><strong>Website:</strong> (link from dog_insurance)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>
+    <script>
+        // Function to update modal content
+        function updateModalContentPet(breed, description) {
+            document.getElementById('modalBreed').textContent = breed;
+            document.getElementById('modalDescription').textContent = description;
+        }
+        function updateModalContentInsurance(insurance, coverage) {
+            document.getElementById('modalInsurance').textContent = insurance;
+            document.getElementById('modalCoverage').textContent = coverage;
+        }
+    </script>
+</body>
+</html>
