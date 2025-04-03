@@ -104,7 +104,7 @@ UNLOCK TABLES;
 
 
 CREATE TABLE Users (
-    idUser INT AUTO_INCREMENT PRIMARY KEY,
+    idUser INT AUTOINCREMENT PRIMARY KEY,
     username VARCHAR(45) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -149,23 +149,26 @@ CREATE TABLE Pet (
     PetName TEXT NOT NULL,
     BreedID INTEGER NOT NULL,
     Age INTEGER,
-    Weight REAL,
+    Gender ENUM('Male', 'Female', 'Unknown'),
+    Weight DECIMAL(5,2),
     VetID INTEGER,
     InsuranceID INTEGER,
+    Condition_ID INTEGER,
     PhotoURL TEXT,
     PRIMARY KEY (OwnerID, PetName),
-    FOREIGN KEY (BreedID) REFERENCES Breeds(BreedID),
+    FOREIGN KEY (BreedID) REFERENCES dog_breeds(id),
     FOREIGN KEY (VetID) REFERENCES Vets(VetID),
     FOREIGN KEY (InsuranceID) REFERENCES Insurance(InsuranceID)
+    FOREIGN KEY (Condition_ID) REFERENCES Conditions(ID)
 );
 
 -- Insert pets for each user in the Users table
-INSERT INTO Pet (OwnerID, PetName, BreedID, Age, Weight, VetID, InsuranceID, PhotoURL) VALUES
-(1, 'Buddy', 50, 3, 25.5, 1, 3, 'https://example.com/buddy.jpg'),
-(1, 'Max', 3, 4, 20.0, 2, 5, 'https://example.com/max.jpg'),
-(2, 'Luna', 4, 2, 18.2, 2, 5, 'https://example.com/luna.jpg'),
-(3, 'Charlie', 40, 5, 50.0, 3, 1, 'https://example.com/charlie.jpg'),
-(4, 'Milo', 35, 1, 10.7, 4, 2, 'https://example.com/milo.jpg');
+INSERT INTO Pet (OwnerID, PetName, BreedID, Age, Gender, Weight, VetID, InsuranceID, Condition_ID, PhotoURL) VALUES
+(1, 'Buddy', 50, 3, 'Male', 25.5, 1, 3, 1, 'https://example.com/buddy.jpg'),
+(1, 'Max', 3, 4, 'Male', 20.0, 1, 3, 1,'https://example.com/max.jpg'),
+(2, 'Luna', 4, 2, 'Female', 18.2, 1, 5, 2, 'https://example.com/luna.jpg'),
+(3, 'Charlie', 40, 5, 'Male', 50.0, 3, 1, 4, 'https://example.com/charlie.jpg'),
+(4, 'Bella', 35, 1, 'Female', 10.7, 4, 2, 6, 'https://example.com/bella.jpg');
 
 
 
@@ -186,5 +189,45 @@ INSERT INTO DogMedications (PetID, MedicationID) VALUES
 (3, 5),  -- Luna takes Benadryl
 (3, 6),  -- Luna also takes Thyro-Tabs
 (4, 7);  -- Charlie takes Trazodone
+
+CREATE TABLE Vets )
+    VetID INTGER PRIMARY KEY AUTOINCREMENT,
+    FirstName TEXT NOT NULL, 
+    LastName TEXT NOT NULL, 
+    ClinicName TEXT, 
+    Address TEXT,
+    PhoneNumber TEXT
+    );
+
+INSERT INTO Vets (VetID, FirstName, LastName, ClinicName, Address, PhoneNumber) VALUES 
+(1,'Alison', 'Hamilton', 'Hamilton Veterinary', '123 Allen Road Charleston, South Carolina', '8435559286'),
+(2, 'Brian', 'Stevens', 'Stevens Animal Care', '456 Oak Street Charleston, South Carolina', '8435556721'),  
+(3, 'Catherine', 'Morris', 'Morris Pet Hospital', '789 Maple Ave Charleston, South Carolina', '8435553412'),  
+(4, 'Emily', 'Turner', 'Turner Animal Hospital', '654 Cedar Lane Charleston, South Carolina', '8435554598'),  
+
+
+CREATE TABLE VetInsurance (
+    VetID INTEGER, 
+    InsuranceID BIGINT UNSIGNED, 
+    PRIMARY KEY (VetID, InsurancnceID), 
+    FOREIGN KEY (VetID) REFERENCES Vets(VetID), 
+    FOREIGN KEY (InsuranceID) REFERENCES dog_insurance(insurance_id)
+    );
+
+
+
+CREATE TABLE Conditions (
+    ID INTEGER PRIMARY KEY,
+    condition_name TEXT NOT NULL,
+    description TEXT
+);
+
+INSERT INTO Conditions (ID, condition_name, description)
+VALUES
+(1, 'Arthritis', 'A degenerative joint disease causing pain and stiffness in older dogs.'),
+(2, 'Parvovirus', 'A highly contagious viral illness that causes severe vomiting and diarrhea, often fatal in puppies.'),
+(3, 'Hip Dysplasia', 'A genetic condition where the hip joint doesn’t fit into the hip socket properly, leading to arthritis.'),
+(4, 'Ear Infections', 'Common in dogs with floppy ears, causing irritation, redness, and a foul odor.'),
+(5, 'Heartworm Disease', 'A potentially fatal condition caused by parasitic worms transmitted through mosquito bites, affecting the heart and lungs.');
 
 
