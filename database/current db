@@ -203,7 +203,7 @@ INSERT INTO Vets (VetID, FirstName, LastName, ClinicName, Address, PhoneNumber) 
 (1,'Alison', 'Hamilton', 'Hamilton Veterinary', '123 Allen Road Charleston, South Carolina', '8435559286'),
 (2, 'Brian', 'Stevens', 'Stevens Animal Care', '456 Oak Street Charleston, South Carolina', '8435556721'),  
 (3, 'Catherine', 'Morris', 'Morris Pet Hospital', '789 Maple Ave Charleston, South Carolina', '8435553412'),  
-(4, 'Emily', 'Turner', 'Turner Animal Hospital', '654 Cedar Lane Charleston, South Carolina', '8435554598'),  
+(4, 'Emily', 'Turner', 'Turner Animal Hospital', '654 Cedar Lane Charleston, South Carolina', '8435554598');
 
 
 CREATE TABLE VetInsurance (
