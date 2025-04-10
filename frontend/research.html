@@ -58,18 +58,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>American Foxhound</td>
-                        <td>Active and alert dogs that excel in hunting and retrieving.</td>
+                        <td>American Foxhound</td> <!--from dog_breed table breed -->
+                        <td>Active and alert dogs that excel in hunting and retrieving.</td> <!--from dog_breed table description -->
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('American Foxhound', 'Active and alert dogs that excel in hunting and retrieving.')">Learn More</button></td>
                     </tr>
                     <tr>
-                        <td>Bloodhound</td>
-                        <td>Known for their keen sense of smell and hunting skills.</td>
+                        <td>Bloodhound</td>     <!--from dog_breed table breed -->
+                        <td>Known for their keen sense of smell and hunting skills.</td> <!--from dog_breed table description -->
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Bloodhound', 'Known for their keen sense of smell and hunting skills.')">Learn More</button></td>
                     </tr>
                     <tr>
-                        <td>Doberman</td>
-                        <td>Strong and intelligent dogs bred for guarding and rescuing.</td>
+                        <td>Doberman</td>   <!--from dog_breed table breed -->
+                        <td>Strong and intelligent dogs bred for guarding and rescuing.</td> <!--from dog_breed table description -->
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Doberman', 'Strong and intelligent dogs bred for guarding and rescuing.')">Learn More</button></td>
                     </tr>
                 </tbody>
@@ -101,18 +101,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ASPCA</td>
-                        <td>Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.</td>
+                        <td>ASPCA</td> <!-- from dog_insurance table provider-->
+                        <td>Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.</td> <!-- from dog_insurance table covered_illnesses-->
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('ASPCA', 'Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.')">Learn More</button></td>
                     </tr>
                     <tr>
-                        <td>Fetch</td>
-                        <td>Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.</td>
+                        <td>Fetch</td> <!-- from dog_insurance table provider-->
+                        <td>Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.</td> <!-- from dog_insurance table covered_illnesses-->
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Fetch', 'Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.')">Learn More</button></td>
                     </tr>
                     <tr>
-                        <td>Spot</td>
-                        <td>Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.</td>
+                        <td>Spot</td> <!-- from dog_insurance table provider-->
+                        <td>Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.</td> <!-- from dog_insurance table covered_illnesses-->
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Spot', 'Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.')">Learn More</button></td>
                     </tr>
                 </tbody>
@@ -140,6 +140,8 @@
                     <p><strong>Trainability:</strong> (value and category from dog_breed)</p>
                     <p><strong>Energy:</strong> (value and category from dog_breed)</p>
                     <p><strong>Shedding:</strong> (value and category from dog_breed)</p>
+                    <br>
+                    <h4>Recommended Insurances</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
