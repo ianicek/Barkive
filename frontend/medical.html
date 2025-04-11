@@ -61,15 +61,15 @@
                                 <tr>
                                     <td>
                                         <select class="form-select" id="petSelect" onchange="updatePetDetails()">
-                                            <option value="Max">Max</option>
+                                            <option value="Max">Max</option> <!-- from Pet table PetName -->
                                             <option value="Ruby">Ruby</option>
                                             <option value="Bella">Bella</option>
                                         </select>
                                     </td>
-                                    <td id="breed">Husky</td>
-                                    <td id="age">2 years old</td>
-                                    <td id="gender">Male</td>
-                                    <td id="weight">25lbs</td>
+                                    <td id="breed">Husky</td> <!-- from Pet table BreedID -->
+                                    <td id="age">2 years old</td> <!-- from Pet table Age -->
+                                    <td id="gender">Male</td> <!-- from Pet table Gender -->
+                                    <td id="weight">25lbs</td> <!-- from Pet table Weight -->
                                 </tr>
                             </tbody>
                         </table>
@@ -85,10 +85,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td id="insurance">ASPCA</td>
-                                    <td id="vet">Alison Hamilton</td>
-                                    <td id="conditions">Ear infection</td>
-                                    <td id="medications">Clavamox</td>
+                                    <td id="insurance">ASPCA</td> <!-- from Pet table InsuranceID -->
+                                    <td id="vet">Alison Hamilton</td> <!-- from Pet table VetID -->
+                                    <td id="conditions">Ear infection</td> <!-- from Pet table Condition -->
+                                    <td id="medications">Clavamox</td> <!-- from DogMedication table MedicationID -->
                                 </tr>
                             </tbody>
                         </table>
@@ -121,10 +121,10 @@
             <div class="col-md-12">
                 <div class="card p-3">
                     <h2 class="text-dark">Veterinarian Contact</h2>
-                    <p><strong>Vet Name:</strong> Alison Hamilton</p>
-                    <p><strong>Phone:</strong> (843)555-9286</p>
+                    <p><strong>Vet Name:</strong> Alison Hamilton</p> <!-- from Vets table FirstName LastName-->
+                    <p><strong>Phone:</strong> (843)555-9286</p> <!-- from Vets table PhoneNumber-->
                     <p><strong>Email:</strong> alisonhamilton@gmail.com</p>
-                    <p><strong>Address:</strong> 123 Allen Road, Charleston, South Carolina</p>
+                    <p><strong>Address:</strong> 123 Allen Road, Charleston, South Carolina</p> <!-- from Vets table Address-->
                 </div>
             </div>
         </div>
