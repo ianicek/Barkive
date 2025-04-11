@@ -47,16 +47,27 @@
                 <h2>Profile Information</h2>
             </div>
             <div class="card-body">
-                <p><strong>Name:</strong> (Pulled from user database)</p>
-                <p><strong>Phone:</strong> (Pulled from user database)</p>
-                <p><strong>Email:</strong> (Pulled from user database)</p>
-                <p><strong>Password:</strong> (Pulled from user database)</p>
-                <p><strong>Created:</strong> (Pulled from user database)</p>
-                <p><strong>Role:</strong> (Pulled from user database)</p>
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</a>
+                <div class="row align-items-center">
+                    <!-- Left Side: Profile Information -->
+                    <div class="col-md-8">
+                        <p><strong>Name:</strong> David Benenhaley</p>
+                        <p><strong>Phone:</strong> (803)123-4567</p>
+                        <p><strong>Email:</strong> benenhaleydj@g.cofc.edu</p>
+                        <p><strong>Password:</strong> barkive1!</p>
+                        <p><strong>Created:</strong> 03/04/2025</p>
+                        <p><strong>Role:</strong> User</p>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</a>
+                    </div>
+    
+                    <!-- Right Side: Profile Picture -->
+                    <div class="col-md-4 text-center">
+                        <img src="blankProfilePic.webp" alt="blank profile pic" class="img-fluid rounded" style="max-height: 200px;">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
 
     <!-- Edit Profile Modal -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
@@ -93,6 +104,8 @@
             </div>
         </div>
     </div>
+
+
     <footer>
         <div class="container">
             <p>&copy; 2025 Barkive. All rights reserved.</p>
