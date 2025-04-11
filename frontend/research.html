@@ -13,6 +13,9 @@
         .navbar-nav .nav-link:hover {
         color: #007bff !important;
         }
+        .custom-modal-size {
+        max-width: 800px;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -59,8 +62,8 @@
                 <tbody>
                     <tr>
                         <td>American Foxhound</td> <!--from dog_breed table breed -->
-                        <td>Active and alert dogs that excel in hunting and retrieving.</td> <!--from dog_breed table description -->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('American Foxhound', 'Active and alert dogs that excel in hunting and retrieving.')">Learn More</button></td>
+                        <td>Sleek and rangy hunters known for their speed, endurance, and work ethic.</td> <!--from dog_breed table description -->
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('American Foxhound', 'Sleek and rangy hunters known for their speed, endurance, and work ethic.')">Learn More</button></td>
                     </tr>
                     <tr>
                         <td>Bloodhound</td>     <!--from dog_breed table breed -->
@@ -120,9 +123,10 @@
         </div>
      </div>
 </div>
+
     <!-- PET Modal -->
     <div class="modal fade" id="learnMoreModalPet" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog custom-modal-size">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="learnMoreModalLabel">More Info</h5>
@@ -130,18 +134,23 @@
                 </div>
                 <div class="modal-body">
                     <h4 id="modalBreed"></h4>
-                    <p id="modalDescription"></p>
-                    <br>
-                    <p><strong>Height:</strong> (min-max pulled from dog_breed table)</p>
-                    <p><strong>Weight:</strong> (min-max pulled from dog_breed table)</p>
-                    <p><strong>Life Expectancy:</strong> (min-max pulled from dog_breed)</p>
-                    <br>
-                    <p><strong>Personality:</strong> (value and category from dog_breed)</p>
-                    <p><strong>Trainability:</strong> (value and category from dog_breed)</p>
-                    <p><strong>Energy:</strong> (value and category from dog_breed)</p>
-                    <p><strong>Shedding:</strong> (value and category from dog_breed)</p>
-                    <br>
+                    <p id="modalDescription">
+                        <p> American Foxhounds have large, soft eyes with an expression described as gentle and pleading. So far, so good. But Foxhounds come with special considerations. They need lots of exercise or they can get depressed and destructive. A Foxhound’s single-minded prey drive must be managed. Their loud bawling is melodious to hound lovers but can be a nuisance to neighbors, and training and housebreaking these independent souls can be a steep challenge for novice owners. American Foxhounds are good-natured, low-maintenance hounds who get on well with kids, dogs, even cats, but come with special considerations for prospective owners.</p> <!-- description pulled from dog_breed table -->
+                    </p>
+                    <p><strong>Height:</strong> 21in - 25in</p> <!-- min_height - max_height pulled from dog_breed table -->
+                    <p><strong>Weight:</strong> 27lb - 31lb </p> <!-- min_weight - max_weight pulled from dog_breed table -->
+                    <p><strong>Life Expectancy:</strong> 11 - 13 years</p> <!-- min_expectancy - max_expectancy pulled from dog_breed table -->
+                    <p><strong>Personality:</strong> Independent, Easy-Going, Sweet-Tempered</p> <!-- temperament from dog_breed -->
+                    <p><strong>Energy:</strong> Energetic </p> <!--energy_level_category from dog_breed -->
+                    <p><strong>Grooming:</strong> Occasional Bath/Brush </p> <!-- grooming_frequency_category from dog_breed-->
+                    <p><strong>Shedding:</strong> Seasonal</p> <!-- shedding_category from dog_breed -->
                     <h4>Recommended Insurances</h4>
+                    <p> These insurance would help cover for medical needs that an American Foxhound would need treatment or medication for such as hip dysplasia, ear infections, hypothyrodism, dental illnesses, and allergies.</p>
+                    <ol>
+                        <li> <a href="https://www.aspcapetinsurance.com/pet-insurance-plan/"> ASPCA</a></li>
+                        <li> <a href="https://www.prudentpet.com/v4/"> Prudent Pet</a> </li>
+                        <li> <a href="http://https://www.embracepetinsurance.com/compare">Embrace</a></li>
+                    </ol>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -160,13 +169,21 @@
                 </div>
                 <div class="modal-body">
                     <h4 id="modalInsurance"></h4>
-                    <p id="modalCoverage"></p>
+                    <p><a href="https://www.aspcapetinsurance.com/pet-insurance-plan/"> Pet Insurance Plan</a></p>
+                    <p><strong>Illness Coverage:</strong> Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions, Cancer, Arthritis, Hypothyroidism, Ear infections, Digestive problems, Urinary tract infections </p> <!-- covered_illnesses from dog_insurance-->
+                    <p><strong>Coverage Cost:</strong> $5,000 - Unlimited </p> <!-- coverage_min - coverage_max from dog_insurance -->
+                    <p><strong>Accident Waiting Period:</strong> Up to 15 days </p> <!-- accident_waiting_period from dog_insurance -->
+                    <p><strong>Illness Waiting Period:</strong> Up to 15 days </p> <!-- illness_waiting_period from dog_insurance -->
+                    <p><strong>Coverage Area:</strong> U.S & Canada</p> <!-- coverage_area from dog_insurance -->
                     <br>
-                    <p><strong>Coverage Cost:</strong> (min-max from dog_insurance)</p>
-                    <p><strong>Accident Waiting Period:</strong> (from dog_insurance)</p>
-                    <p><strong>Illness Waiting Period:</strong> (from dog_insurance)</p>
-                    <br>
-                    <p><strong>Website:</strong> (link from dog_insurance)</p>
+                    <h4>Recommended Medication</h4>
+                    <p>These recomended medications that would help treat the illnesses above</p>
+                    <ul>
+                        <li> <strong>Rimadyl</strong> used to treat arthritis and pain relief. </li>
+                        <li> <strong>Thyro-Tabs</strong> used to treat hypothyroidism in dogs</li>
+                        <li> <strong>Clavamox</strong> is an antibiotic for skin, ear, and urinary tract infections.</li>
+                    </ul>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
