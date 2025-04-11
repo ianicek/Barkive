@@ -13,6 +13,11 @@
         .navbar-nav .nav-link:hover {
         color: #007bff !important;
         }
+        footer {
+        background-color: #F1E8E3;
+        padding: 20px 0;
+        text-align: center;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -48,31 +53,41 @@
                                     <th>Pet Name</th>
                                     <th>Breed</th>
                                     <th>Age</th>
+                                    <th>Gender</th>
                                     <th>Weight</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>(Pulled from pet database)</td>
-                                    <td>(Pulled from pet database)</td>
-                                    <td>(Pulled from pet database)</td>
-                                    <td>(Pulled from pet database)</td>
+                                    <td>
+                                        <select class="form-select" id="petSelect" onchange="updatePetDetails()">
+                                            <option value="Max">Max</option>
+                                            <option value="Ruby">Ruby</option>
+                                        </select>
+                                    </td>
+                                    <td id="breed">Husky</td>
+                                    <td id="age">2 years old</td>
+                                    <td id="gender">Male</td>
+                                    <td id="weight">25lbs</td>
                                 </tr>
                             </tbody>
                         </table>
+                        
                         <table class="table table-bordered">
                             <thead class="table-warning">
                                 <tr>
                                     <th>Insurance</th>
                                     <th>Veterinarian</th>
+                                    <th>Conditions</th>
                                     <th>Medications</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>(Pulled from pet database)</td>
-                                    <td>(Pulled from pet database)</td>
-                                    <td>(Pulled from DogMedications database)</td>
+                                    <td id="insurance">ASPCA</td>
+                                    <td id="vet">Alison Hamilton</td>
+                                    <td id="conditions">Ear infection</td>
+                                    <td id="medications">Clavamox</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -85,18 +100,18 @@
             <div class="col-md-6">
                 <div class="card p-3">
                     <h2 class="text-dark">Insurance Contact</h2>
-                    <p><strong>Provider:</strong> (Pulled from insurance database)</p>
-                    <p><strong>Coverage:</strong> (Pulled from insurance database)</p>
-                    <p><strong>Website:</strong> (Pulled from insurance database)</p>
+                    <p><strong>Provider:</strong> ASPCA</p>
+                    <p><strong>Coverage:</strong> $5,000 - $12,000</p>
+                    <p><strong>Website:</strong> <a href="https://www.aspcapetinsurance.com"> www.aspcapetinsurance.con</a></p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card p-3">
                     <h2 class="text-dark">Emergency Information</h2>
                     <p>If your pet is experiencing a medical emergency, please contact your nearest veterinary hospital immediately.</p>
-                    <p><strong>Emergency Vet:</strong> (Pulled from veterinarian database)</p>
-                    <p><strong>Phone:</strong> (Pulled from veterinarian database)</p>
-                    <p><strong>Location:</strong> (Pulled from veterinarian database)</p>
+                    <p><strong>Emergency Vet:</strong> BluePearl Pet Hospital</p>
+                    <p><strong>Phone:</strong> (843) 216-7554</p>
+                    <p><strong>Location:</strong>  985 Johnnie Dodds Blvd, Mt Pleasant, South Carolina</p>
                 </div>
             </div>
         </div>
@@ -105,13 +120,62 @@
             <div class="col-md-12">
                 <div class="card p-3">
                     <h2 class="text-dark">Veterinarian Contact</h2>
-                    <p><strong>Vet Name:</strong> (Pulled from veterinarian database)</p>
-                    <p><strong>Phone:</strong> (Pulled from veterinarian database)</p>
-                    <p><strong>Email:</strong> (Pulled from veterinarian database)</p>
-                    <p><strong>Address:</strong> (Pulled from veterinarian database)</p>
+                    <p><strong>Vet Name:</strong> Alison Hamilton</p>
+                    <p><strong>Phone:</strong> (843)555-9286</p>
+                    <p><strong>Email:</strong> alisonhamilton@gmail.com</p>
+                    <p><strong>Address:</strong> 123 Allen Road, Charleston, South Carolina</p>
                 </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Barkive. All rights reserved.</p>
+            <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+ const petData = {
+        Max: {
+            breed: "Husky",
+            age: "2 years old",
+            gender: "Male",
+            weight: "25lbs",
+            insurance: "ASPCA",
+            vet: "Alison Hamilton",
+            conditions: "Ear infection",
+            medications: "Clavamox"
+        },
+        Ruby: {
+            breed: "Corgi",
+            age: "5 years old",
+            gender: "Female",
+            weight: "15lbs",
+            insurance: "ASPCA",
+            vet: "Alison Hamilton",
+            conditions: "Arthritis",
+            medications: "Rimadyl"
+        },
+    };
+
+    function updatePetDetails() {
+        const selectedPet = document.getElementById("petSelect").value;
+        const pet = petData[selectedPet];
+
+        // Update first table
+        document.getElementById("breed").innerText = pet.breed;
+        document.getElementById("age").innerText = pet.age;
+        document.getElementById("gender").innerText = pet.gender;
+        document.getElementById("weight").innerText = pet.weight;
+
+        // Update second table
+        document.getElementById("insurance").innerText = pet.insurance;
+        document.getElementById("vet").innerText = pet.vet;
+        document.getElementById("conditions").innerText = pet.conditions;
+        document.getElementById("medications").innerText = pet.medications;
+    }
+    </script>
+    
 </body>
 </html>
