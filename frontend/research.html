@@ -15,6 +15,7 @@
         }
     </style>
 </head>
+
 <body class="bg-light">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg bg-warning navbar-light">
@@ -42,36 +43,22 @@
     <div class="container mt-4">
         <h2 class="text-center mb-3">Pet Search</h2>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search for pet information..." aria-label="Search">
-            <button class="btn btn-warning" type="button">Search</button>
+            <input type="text" class="form-control" placeholder="Search for pet information..." aria-label="Search" id="petSearchInput">
+            <button class="btn btn-warning" type="button" onclick="filterPets()">Search</button>
         </div>
     
         <!-- Pet Groups Table -->
         <div class="table-responsive">
-            <table class="table table-bordered text-center">
-                <thead class="table-warning">
+            <table class="table table-bordered text-center" style="display: block; height: 500px; overflow-y: scroll;">
+                <thead class="table-warning" style="position: sticky; top: 0;">
                     <tr>
                         <th>Breed</th>
                         <th>Description</th>
                         <th>More Info</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>American Foxhound</td> <!--from dog_breed table breed -->
-                        <td>Active and alert dogs that excel in hunting and retrieving.</td> <!--from dog_breed table description -->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('American Foxhound', 'Active and alert dogs that excel in hunting and retrieving.')">Learn More</button></td>
-                    </tr>
-                    <tr>
-                        <td>Bloodhound</td>     <!--from dog_breed table breed -->
-                        <td>Known for their keen sense of smell and hunting skills.</td> <!--from dog_breed table description -->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Bloodhound', 'Known for their keen sense of smell and hunting skills.')">Learn More</button></td>
-                    </tr>
-                    <tr>
-                        <td>Doberman</td>   <!--from dog_breed table breed -->
-                        <td>Strong and intelligent dogs bred for guarding and rescuing.</td> <!--from dog_breed table description -->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" onclick="updateModalContentPet('Doberman', 'Strong and intelligent dogs bred for guarding and rescuing.')">Learn More</button></td>
-                    </tr>
+                <tbody  id="dogBreedsTable">
+                    
                 </tbody>
             </table>
         </div>
@@ -85,36 +72,22 @@
      <div class="container mt-4">
         <h2 class="text-center mb-3">Insurance Search</h2>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search for insurance information..." aria-label="Search">
-            <button class="btn btn-warning" type="button">Search</button>
+            <input type="text" class="form-control" placeholder="Search for insurance information..." aria-label="Search" id="insuranceSearchInput">
+            <button class="btn btn-warning" type="button" onclick="filterInsurance()">Search</button>
         </div>
     
         <!-- Insurance Groups Table -->
         <div class="table-responsive">
-            <table class="table table-bordered text-center">
-                <thead class="table-warning">
+            <table class="table table-bordered text-center" style="height: 500px; overflow-y: scroll;">
+                <thead class="table-warning" style="position: sticky; top: 0;">
                     <tr>
                         <th>Insurance</th>
-                        <th>Coverage Area</th>
+                        <th>Covered Illnesses</th>
                         <th>More Info</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>ASPCA</td> <!-- from dog_insurance table provider-->
-                        <td>Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.</td> <!-- from dog_insurance table covered_illnesses-->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('ASPCA', 'Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions.')">Learn More</button></td>
-                    </tr>
-                    <tr>
-                        <td>Fetch</td> <!-- from dog_insurance table provider-->
-                        <td>Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.</td> <!-- from dog_insurance table covered_illnesses-->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Fetch', 'Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease.')">Learn More</button></td>
-                    </tr>
-                    <tr>
-                        <td>Spot</td> <!-- from dog_insurance table provider-->
-                        <td>Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.</td> <!-- from dog_insurance table covered_illnesses-->
-                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" onclick="updateModalContentInsurance('Spot', 'Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses.')">Learn More</button></td>
-                    </tr>
+                <tbody id="dogInsuranceTable">
+                    
                 </tbody>
             </table>
         </div>
@@ -132,14 +105,14 @@
                     <h4 id="modalBreed"></h4>
                     <p id="modalDescription"></p>
                     <br>
-                    <p><strong>Height:</strong> (min-max pulled from dog_breed table)</p>
-                    <p><strong>Weight:</strong> (min-max pulled from dog_breed table)</p>
-                    <p><strong>Life Expectancy:</strong> (min-max pulled from dog_breed)</p>
+                    <p><strong>Height:</strong> <span id="modalMinHeight"></span> <span> - </span><span id="modalMaxHeight"></span></p>
+                    <p><strong>Weight:</strong> <span id="modalMinWeight"></span> <span> - </span><span id="modalMaxWeight"></span></p>
+                    <p><strong>Life Expectancy:</strong> <span id="modalMinLife"></span> <span> - </span><span id="modalMaxLife"></span></p>
                     <br>
-                    <p><strong>Personality:</strong> (value and category from dog_breed)</p>
-                    <p><strong>Trainability:</strong> (value and category from dog_breed)</p>
-                    <p><strong>Energy:</strong> (value and category from dog_breed)</p>
-                    <p><strong>Shedding:</strong> (value and category from dog_breed)</p>
+                    <p><strong>Personality:</strong> <span id="modalDemeanor"></span> <span> - </span><span id="modalDemeanorValue"></span></p>
+                    <p><strong>Trainability:</strong> <span id="modalTrainability"></span> <span> - </span><span id="modalTrainabilityValue"></span></p>
+                    <p><strong>Energy:</strong> <span id="modalEnergy"></span> <span> - </span><span id="modalEnergyValue"></span></p>
+                    <p><strong>Shedding:</strong> <span id="modalShedding"></span> <span> - </span><span id="modalSheddingValue"></span></p>
                     <br>
                     <h4>Recommended Insurances</h4>
                 </div>
@@ -162,11 +135,11 @@
                     <h4 id="modalInsurance"></h4>
                     <p id="modalCoverage"></p>
                     <br>
-                    <p><strong>Coverage Cost:</strong> (min-max from dog_insurance)</p>
-                    <p><strong>Accident Waiting Period:</strong> (from dog_insurance)</p>
-                    <p><strong>Illness Waiting Period:</strong> (from dog_insurance)</p>
+                    <p><strong>Coverage Cost:</strong> <span id="modalMinCost"></span> <span> - </span><span id="modalMaxCost"></span></p>
+                    <p><strong>Accident Waiting Period:</strong> <span id="modalAccidentWaitingPeriod"></span></p>
+                    <p><strong>Illness Waiting Period:</strong> <span id="modalIllnessWaitingPeriod"></span></p>
                     <br>
-                    <p><strong>Website:</strong> (link from dog_insurance)</p>
+                    <p><strong>Website:</strong> <span id="modalWebsite"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -176,14 +149,136 @@
     </div>
     <script>
         // Function to update modal content
-        function updateModalContentPet(breed, description) {
+        function updateModalContentPet(breed, description, minHeight, maxHeight, minWeight, maxWeight, minLife, maxLife, demeanor, demeanorValue, trainability, trainabilityValue, energy, energyValue, shedding, sheddingValue) {
             document.getElementById('modalBreed').textContent = breed;
             document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalMinHeight').textContent = minHeight;
+            document.getElementById('modalMaxHeight').textContent = maxHeight;
+            document.getElementById('modalMinWeight').textContent = minWeight;
+            document.getElementById('modalMaxWeight').textContent = maxWeight;
+            document.getElementById('modalMinLife').textContent = minLife;
+            document.getElementById('modalMaxLife').textContent = maxLife;
+            document.getElementById('modalDemeanor').textContent = demeanor;
+            document.getElementById('modalDemeanorValue').textContent = demeanorValue;
+            document.getElementById('modalTrainability').textContent = trainability;
+            document.getElementById('modalTrainabilityValue').textContent = trainabilityValue;
+            document.getElementById('modalEnergy').textContent = energy;
+            document.getElementById('modalEnergyValue').textContent = energyValue;
+            document.getElementById('modalShedding').textContent = shedding;
+            document.getElementById('modalSheddingValue').textContent = sheddingValue;
         }
-        function updateModalContentInsurance(insurance, coverage) {
+        function updateModalContentInsurance(insurance, coverage, minCost, maxCost, accidentWaitingPeriod, illnessWaitingPeriod, website) {
             document.getElementById('modalInsurance').textContent = insurance;
             document.getElementById('modalCoverage').textContent = coverage;
+            document.getElementById('modalMinCost').textContent = minCost;
+            document.getElementById('modalMaxCost').textContent = maxCost;
+            document.getElementById('modalAccidentWaitingPeriod').textContent = accidentWaitingPeriod;
+            document.getElementById('modalIllnessWaitingPeriod').textContent = illnessWaitingPeriod;
+            document.getElementById('modalWebsite').textContent = website;
         }
+        // Function to fetch data from the API and populate the dog breeds table
+        async function fetchDogBreeds() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/get-dog-breeds'); 
+                if (!response.ok) {
+                    throw new Error('Failed to fetch dog breeds');
+                }
+                const data = await response.json();
+                console.log(data); 
+                const tableBody = document.getElementById('dogBreedsTable');
+                tableBody.innerHTML = ''; // Clear existing rows
+
+                data.forEach(breed => {
+                    const row = document.createElement('tr');
+                    console.log(breed.min_height);
+                    row.innerHTML = `
+                        <td>${breed.breed}</td>
+                        <td>${breed.description}</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalPet" 
+                                onclick="updateModalContentPet('${breed.breed}', '${breed.description}', '${breed.min_height}', '${breed.max_height}', '${breed.min_weight}', '${breed.max_weight}', '${breed.min_expectancy}', '${breed.max_expectancy}', '${breed.demeanor_category}', '${breed.demeanor_value}', '${breed.trainability_category}', '${breed.trainability_value}', '${breed.energy_level_category}', '${breed.energy_level_value}', '${breed.shedding_category}', '${breed.shedding_value}')">Learn More</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching dog breeds:', error);
+            }
+        }
+
+        // Function to filter pet table
+        function filterPets() {
+            const searchInput = document.getElementById('petSearchInput').value.toLowerCase();
+            const tableRows = document.querySelectorAll('#dogBreedsTable tr');
+
+            tableRows.forEach(row => {
+                let textFound = false;
+                const cells = row.querySelectorAll('td');
+                cells.forEach(cell => {
+                    if (cell.textContent.toLowerCase().includes(searchInput)) {
+                        textFound = true;
+                    }
+                });
+                if (textFound) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to fetch data from the API and populate the dog breeds table
+        async function fetchDogInsurance() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/get-dog-insurances'); 
+                if (!response.ok) {
+                    throw new Error('Failed to fetch dog insurances');
+                }
+                const data = await response.json();
+                const tableBody = document.getElementById('dogInsuranceTable');
+                tableBody.innerHTML = ''; // Clear existing rows
+
+                data.forEach(insurance => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${insurance.provider}</td>
+                        <td>${insurance.covered_illnesses}</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#learnMoreModalInsurance" 
+                                onclick="updateModalContentInsurance('${insurance.provider}', '${insurance.covered_illnesses}', '${insurance.coverage_min}', '${insurance.coverage_max}', '${insurance.accident_waiting_period}', '${insurance.illness_waiting_period}', '${insurance.website}')">Learn More</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching dog insurance:', error);
+            }
+        }
+
+        // Function to filter insurance table
+        function filterInsurance() {
+            const searchInput = document.getElementById('insuranceSearchInput').value.toLowerCase();
+            const tableRows = document.querySelectorAll('#dogInsuranceTable tr');
+
+            tableRows.forEach(row => {
+                let textFound = false;
+                const cells = row.querySelectorAll('td');
+                cells.forEach(cell => {
+                    if (cell.textContent.toLowerCase().includes(searchInput)) {
+                        textFound = true;
+                    }
+                });
+                if (textFound) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Call the functions to fetch and populate the table when the page loads
+        document.addEventListener('DOMContentLoaded', fetchDogBreeds);
+        document.addEventListener('DOMContentLoaded', fetchDogInsurance);
     </script>
 </body>
 </html>
