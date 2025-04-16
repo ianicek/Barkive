@@ -1,23 +1,3 @@
--- MySQL dump 10.13  Distrib 8.4.0, for macos13.2 (x86_64)
---
--- Host: localhost    Database: barkive
--- ------------------------------------------------------
--- Server version	9.2.0
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `dog_breeds`
---
 
 DROP TABLE IF EXISTS `dog_breeds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -87,7 +67,7 @@ CREATE TABLE `dog_insurance` (
 
 LOCK TABLES `dog_insurance` WRITE;
 /*!40000 ALTER TABLE `dog_insurance` DISABLE KEYS */;
-INSERT INTO `dog_insurance` VALUES (1,'Fetch',5000,NULL,15,15,1,'U.S. & Canada','https://www.fetchpet.com/mypet?utm_source=charleston_animal_society&utm_medium=partnership&utm_campaign=onsite&c=CAS1','Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease, Arthritis, Cancer, Skin and ear infections, Vomiting and diarrhea, Cherry eye'),(2,'Spot',2500,NULL,14,14,1,'U.S','https://spotpet.com/locations/south-carolina/charleston-pet-insurance','Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses'),(3,'Lemonade',5000,100000,0,14,1,'U.S','https://www.lemonade.com/pet','Broken bones, Hereditary conditions, Hip dysplasia, Chronic conditions, infestations, infections'),(4,'ASPCA',2500,10000,15,15,1,'U.S & Canada','https://www.aspcapetinsurance.com/pet-insurance-plan/','Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions, Cancer, Arthritis, Hypothyroidism, Ear infections, Digestive problems, Urinary tract infections'),(5,'Embrace',5000,NULL,0,15,1,'U.S','https://www.embracepetinsurance.com/compare','Dental illnesses, Hip dysplasia, Allergies, Intervertebral disc disease, Cancer, Chronic conditions, Lyme disease, Parasites, Parvo, Ligament tears, Broken bpnes, Osteosarcoma'),(6,'Prudent Pet',2500,NULL,5,14,1,'U.S & Canada','https://www.prudentpet.com/v4/','Broken bones, Sprains, Wounds, Burns, Toxic ingestions, Allergies, Behavioral problems, Cancer, Respiratory problems, Urinary tract infections, Gastroenteritis');
+INSERT INTO `dog_insurance` VALUES (1,'Fetch',5000,NULL,15,15,1,'U.S. & Canada','https://www.fetchpet.com/mypet?utm_source=charleston_animal_society&utm_medium=partnership&utm_campaign=onsite&c=CAS1','Sick visits, Allergies, Breed-Specific issues, Peridontal and gum disease, Arthritis, Cancer, Skin and ear infections, Vomiting and diarrhea, Cherry eye'),(2,'Spot',2500,NULL,14,14,1,'U.S','https://spotpet.com/locations/south-carolina/charleston-pet-insurance','Skin, eye and ear infections, Cancer, Behavioral issues, Congenital and hereditary conditions, Dental illnesses'),(3,'Lemonade',5000,100000,0,14,1,'U.S','https://www.lemonade.com/pet','Broken bones, Hereditary conditions, Hip dysplasia, Chronic conditions, infestations, infections'),(4,'ASPCA',2500,10000,15,15,1,'U.S & Canada','https://www.aspcapetinsurance.com/pet-insurance-plan/','Bite wounds, Cuts, Broken bones, Swallowed objects, Toxic ingestions, Cancer, Arthritis, Hypothyroidism, Ear infections, Digestive problems, Urinary tract infections'),(5,'Embrace',5000,NULL,0,15,1,'U.S','https://www.embracepetinsurance.com/compare','Dental illnesses, Hip dysplasia, Allergies, Intervertebral disc disease, Cancer, Chronic conditions, Lyme disease, Parasites, Parvo, Ligament tears, Broken bones, Osteosarcoma'),(6,'Prudent Pet',2500,NULL,5,14,1,'U.S & Canada','https://www.prudentpet.com/v4/','Broken bones, Sprains, Wounds, Burns, Toxic ingestions, Allergies, Behavioral problems, Cancer, Respiratory problems, Urinary tract infections, Gastroenteritis');
 /*!40000 ALTER TABLE `dog_insurance` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -104,7 +84,7 @@ UNLOCK TABLES;
 
 
 CREATE TABLE Users (
-    idUser INT AUTOINCREMENT PRIMARY KEY,
+    idUser INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(45) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -126,22 +106,63 @@ VALUES
 ('user3', 'user3@example.com', 'password', 'user');
 
 CREATE TABLE Medication (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     brand_name VARCHAR(100) NOT NULL,
     generic_name VARCHAR(100),
-    price REAL,
-    information TEXT,
-    side_effects TEXT
+    price DECIMAL(10,2),
+    information TEXT
 );
-INSERT INTO Medication (brand_name, generic_name, price, information, side_effects)
+
+INSERT INTO Medication (brand_name, generic_name, price, information)
 VALUES
-('Cerenia', 'Maropitant Citrate', 45.99, 'Prevents nausea and vomiting in dogs.', 'Drooling, lethargy, diarrhea, loss of appetite'),
-('Apoquel', 'Oclacitinib', 70.99, 'Treats itching, skin allergies, and inflammation.', 'Vomiting, diarrhea, lethargy, increased risk of infections'),
-('Rimadyl', 'Carprofen', 35.99, 'NSAID used to treat arthritis and pain relief.', 'Vomiting, diarrhea, loss of appetite, liver issues'),
-('Clavamox', 'Amoxicillin/Clavulanic Acid', 28.99, 'Antibiotic for skin, ear, and urinary tract infections.', 'Vomiting, diarrhea, allergic reactions'),
-('Benadryl', 'Diphenhydramine', 10.99, 'Used for allergies and mild sedation.', 'Drowsiness, dry mouth, urinary retention'),
-('Thyro-Tabs', 'Levothyroxine', 29.99, 'Used to treat hypothyroidism in dogs.', 'Increased thirst, weight loss, restlessness'),
-('Trazodone', 'Trazodone Hydrochloride', 30.99, 'Used for behavioral issues and anxiety.', 'Drowsiness, dizziness, lethargy');
+('Cerenia', 'Maropitant Citrate', 45.99, 'Prevents nausea and vomiting in dogs.'),
+('Apoquel', 'Oclacitinib', 70.99, 'Treats itching, skin allergies, and inflammation.'),
+('Rimadyl', 'Carprofen', 35.99, 'NSAID used to treat arthritis and pain relief.'),
+('Clavamox', 'Amoxicillin/Clavulanic Acid', 28.99, 'Antibiotic for skin, ear, and urinary tract infections.'),
+('Benadryl', 'Diphenhydramine', 10.99, 'Used for allergies and mild sedation.'),
+('Thyro-Tabs', 'Levothyroxine', 29.99, 'Used to treat hypothyroidism in dogs.'),
+('Trazodone', 'Trazodone Hydrochloride', 30.99, 'Used for behavioral issues and anxiety.');
+
+
+CREATE TABLE SideEffects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    effect_name VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE MedicationSideEffects (
+    medication_id INT,
+    side_effect_id INT,
+    PRIMARY KEY (medication_id, side_effect_id),
+    FOREIGN KEY (medication_id) REFERENCES Medication(id),
+    FOREIGN KEY (side_effect_id) REFERENCES SideEffects(id)
+);
+
+
+-- Insert side effects (only if they are not already in the table)
+INSERT IGNORE INTO SideEffects (effect_name)
+VALUES
+('Drooling'),
+('Lethargy'),
+('Diarrhea'),
+('Loss of Appetite'),
+('Vomiting'),
+('Increased Risk of Infections'),
+('Allergic Reactions'),
+('Drowsiness'),
+('Dry Mouth'),
+('Urinary Retention'),
+('Increased Thirst'),
+('Weight Loss'),
+('Restlessness'),
+('Dizziness');
+
+-- Insert medication-side effect links
+INSERT INTO MedicationSideEffects (medication_id, side_effect_id)
+VALUES
+(1, (SELECT id FROM SideEffects WHERE effect_name = 'Drooling')),
+(1, (SELECT id FROM SideEffects WHERE effect_name = 'Lethargy')),
+(1, (SELECT id FROM SideEffects WHERE effect_name = 'Diarrhea')),
+(1, (SELECT id FROM SideEffects WHERE effect_name = 'Loss of Appetite'));
 
 
 CREATE TABLE Pet (
@@ -158,61 +179,67 @@ CREATE TABLE Pet (
     PRIMARY KEY (OwnerID, PetName),
     FOREIGN KEY (BreedID) REFERENCES dog_breeds(id),
     FOREIGN KEY (VetID) REFERENCES Vets(VetID),
-    FOREIGN KEY (InsuranceID) REFERENCES Insurance(InsuranceID)
+    FOREIGN KEY (InsuranceID) REFERENCES dog_insurance(insurance_id),
     FOREIGN KEY (Condition_ID) REFERENCES Conditions(ID)
 );
 
--- Insert pets for each user in the Users table
-INSERT INTO Pet (OwnerID, PetName, BreedID, Age, Gender, Weight, VetID, InsuranceID, Condition_ID, PhotoURL) VALUES
+INSERT INTO Pet (OwnerID, PetName, BreedID, Age, Gender, Weight, VetID, InsuranceID, Condition_ID, PhotoURL) 
+VALUES
 (1, 'Buddy', 50, 3, 'Male', 25.5, 1, 3, 1, 'https://example.com/buddy.jpg'),
-(1, 'Max', 3, 4, 'Male', 20.0, 1, 3, 1,'https://example.com/max.jpg'),
+(1, 'Max', 3, 4, 'Male', 20.0, 1, 3, 1, 'https://example.com/max.jpg'),
 (2, 'Luna', 4, 2, 'Female', 18.2, 1, 5, 2, 'https://example.com/luna.jpg'),
 (3, 'Charlie', 40, 5, 'Male', 50.0, 3, 1, 4, 'https://example.com/charlie.jpg'),
 (4, 'Bella', 35, 1, 'Female', 10.7, 4, 2, 6, 'https://example.com/bella.jpg');
 
 
 
-
 CREATE TABLE DogMedications (
-    PetID INTEGER,
+    OwnerID INTEGER,
+    PetName TEXT,
     MedicationID INTEGER,
-    PRIMARY KEY (PetID, MedicationID),
-    FOREIGN KEY (PetID) REFERENCES Pet(ID) ON DELETE CASCADE,
+    PRIMARY KEY (OwnerID, PetName, MedicationID),
+    FOREIGN KEY (OwnerID, PetName) REFERENCES Pet(OwnerID, PetName) ON DELETE CASCADE,
     FOREIGN KEY (MedicationID) REFERENCES Medication(id) ON DELETE CASCADE
 );
 
-INSERT INTO DogMedications (PetID, MedicationID) VALUES
-(1, 1),  -- Buddy takes Cerenia (just some examples)
-(1, 3),  -- Buddy also takes Rimadyl
-(2, 2),  -- Max takes Apoquel
-(2, 4),  -- Max also takes Clavamox
-(3, 5),  -- Luna takes Benadryl
-(3, 6),  -- Luna also takes Thyro-Tabs
-(4, 7);  -- Charlie takes Trazodone
 
-CREATE TABLE Vets )
-    VetID INTGER PRIMARY KEY AUTOINCREMENT,
+INSERT INTO DogMedications (OwnerID, PetName, MedicationID) VALUES
+(1, 'Buddy', 1),  -- Buddy takes Cerenia
+(1, 'Buddy', 3),  -- Buddy also takes Rimadyl
+(2, 'Max', 2),    -- Max takes Apoquel
+(2, 'Max', 4),    -- Max also takes Clavamox
+(3, 'Luna', 5),   -- Luna takes Benadryl
+(3, 'Luna', 6),   -- Luna also takes Thyro-Tabs
+(4, 'Charlie', 7), -- Charlie takes Trazodone
+(4, 'Bella', 1) -- Bella takes Cerenia
+
+
+
+CREATE TABLE Vets (
+    VetID INTEGER PRIMARY KEY AUTOINCREMENT,
     FirstName TEXT NOT NULL, 
     LastName TEXT NOT NULL, 
     ClinicName TEXT, 
     Address TEXT,
     PhoneNumber TEXT
-    );
+);
 
-INSERT INTO Vets (VetID, FirstName, LastName, ClinicName, Address, PhoneNumber) VALUES 
-(1,'Alison', 'Hamilton', 'Hamilton Veterinary', '123 Allen Road Charleston, South Carolina', '8435559286'),
-(2, 'Brian', 'Stevens', 'Stevens Animal Care', '456 Oak Street Charleston, South Carolina', '8435556721'),  
-(3, 'Catherine', 'Morris', 'Morris Pet Hospital', '789 Maple Ave Charleston, South Carolina', '8435553412'),  
-(4, 'Emily', 'Turner', 'Turner Animal Hospital', '654 Cedar Lane Charleston, South Carolina', '8435554598');
+
+INSERT INTO Vets (FirstName, LastName, ClinicName, Address, PhoneNumber) VALUES 
+('Alison', 'Hamilton', 'Hamilton Veterinary', '123 Allen Road Charleston, South Carolina', '8435559286'),
+('Brian', 'Stevens', 'Stevens Animal Care', '456 Oak Street Charleston, South Carolina', '8435556721'),
+('Catherine', 'Morris', 'Morris Pet Hospital', '789 Maple Ave Charleston, South Carolina', '8435553412'),
+('Emily', 'Turner', 'Turner Animal Hospital', '654 Cedar Lane Charleston, South Carolina', '8435554598');
 
 
 CREATE TABLE VetInsurance (
     VetID INTEGER, 
     InsuranceID BIGINT UNSIGNED, 
-    PRIMARY KEY (VetID, InsurancnceID), 
+    PRIMARY KEY (VetID, InsuranceID), 
     FOREIGN KEY (VetID) REFERENCES Vets(VetID), 
     FOREIGN KEY (InsuranceID) REFERENCES dog_insurance(insurance_id)
-    );
+);
+
 
 
 
@@ -229,5 +256,30 @@ VALUES
 (3, 'Hip Dysplasia', 'A genetic condition where the hip joint doesn’t fit into the hip socket properly, leading to arthritis.'),
 (4, 'Ear Infections', 'Common in dogs with floppy ears, causing irritation, redness, and a foul odor.'),
 (5, 'Heartworm Disease', 'A potentially fatal condition caused by parasitic worms transmitted through mosquito bites, affecting the heart and lungs.');
+
+CREATE TABLE VetAppointments (
+    AppointmentID INTEGER PRIMARY KEY AUTOINCREMENT,
+    PetOwnerID INTEGER NOT NULL,
+    PetName TEXT NOT NULL,
+    VetID INTEGER NOT NULL,
+    AppointmentDateTime DATETIME NOT NULL,
+    FOREIGN KEY (PetOwnerID, PetName) REFERENCES Pet(OwnerID, PetName) ON DELETE CASCADE,
+    FOREIGN KEY (VetID) REFERENCES Vets(VetID)
+);
+
+
+
+INSERT INTO VetAppointments (PetOwnerID, PetName, VetID, AppointmentDate)
+VALUES 
+(1, 'Buddy', 1, '2025-04-15 10:30:00'),
+(1, 'Max', 1, '2025-04-16 09:00:00'),
+(2, 'Luna', 1, '2025-04-17 14:00:00'),
+(3, 'Charlie', 3, '2025-04-18 11:15:00'),
+(4, 'Bella', 4, '2025-04-19 16:45:00');
+
+SELECT 
+  PetName,
+  DATE_FORMAT(AppointmentDateTime, '%l:%i %p') AS FormattedTime
+FROM VetAppointments;
 
 
