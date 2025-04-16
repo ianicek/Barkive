@@ -26,6 +26,11 @@
         padding-top: 10px;
         margin-bottom: 10px;
         }
+        footer {
+            background-color: #F1E8E3;
+            padding: 20px 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -52,7 +57,7 @@
     <!-- User Prompt -->
     <div class="container mt-4">
         <div class="card shadow p-4">
-            <h1><strong> Hello User!</strong></h1> <!-- from User table user-->
+            <h1><strong> Hello Joe!</strong></h1> <!-- from User table user-->
             <p><strong>Your next appointment is for Max, April 12 at 12:00pm.</strong> </p>
         </div>
     </div>
@@ -61,89 +66,112 @@
     <div class="container mt-4">
         <div class="card shadow p-4">
             <h1 class="text-center">Your Furry Friends</h1>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-3">          
+                                
+                <!-- Pet Card -->
+                <div class="card pet-card bg-warning bg-opacity-50 text-center">
+                    <div class="row g-0">
+                        <div class="col-md-7">
+                            <img src="Bark5.jpg" class="card-img pet-img" alt="Dog 1">  <!--img src = from Pet table PhotoURL-->
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card-body text-start">
+                                <h5 class="card-title">Max</h5> <!-- from Pet table PetName -->
+                                <p class="card-text">2 years old Husky</p> <!-- from Pet table Age | BreedID-->
+                                <!-- Button toggles the whole card details -->
+                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog1-full-info">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entire card collapsible content -->
+                    <div id="dog1-full-info" class="collapse">
+                        <div class="card-body text-start">
+                            <p><strong>Gender:</strong> Male </p> <!-- from Pet table Gender -->
+                            <p><strong>Weight:</strong> 25lbs</p> <!-- from Pet table Weight -->
+                            <p><strong>Medication:</strong> Clavamox</p>  <!-- from DogMedication table MedicationID-->
+                            <p><strong>Appointment:</strong> April 12, 2025</p>
+                            <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog1">Veterinarian Contact</button>
+                            
+                            <!-- Nested collapse for Emergency Contact -->
+                            <div id="emergency-contact-dog1" class="collapse mt-2">
+                                <div class="card bg-light p-3">
+                                    <p><strong>Veterinarian:</strong> Alison Hamilton</p> <!-- from Vets table FirstName and LastName -->
+                                    <p><strong>Phone:</strong> (843)555-9286</p> <!-- from Vets table PhoneNumber -->
+                                    <p><strong>Address:</strong> 123 Allen Road Charleston, South Carolina</p> <!-- from Vets table Address -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Pet Card -->
                 <div class="card pet-card bg-warning bg-opacity-50 text-center">
                     <div class="row g-0">
                         <div class="col-md-7">
-                            <img src="bark4.jpg" class="card-img pet-img" alt="Dog 1">  <!--img src = from Pet table PhotoURL-->
+                            <img src="bark4.jpg" class="card-img pet-img" alt="Dog 2">  <!--img src = from Pet table PhotoURL-->
                         </div>
                         <div class="col-md-5">
                             <div class="card-body text-start">
-                                <h5 class="card-title">Sandy</h5>   <!-- from Pet table PetName -->
-                                <p class="card-text">5 years | Corgi</p>    <!-- from Pet table Age | BreedID-->
-                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog1-info">More Info</button>
-                                <div id="dog1-info" class="collapse mt-2">
-                                    <p><strong>Weight:</strong> 25lbs</p>   <!-- from Pet table Weight -->
-                                    <p><strong>Medication:</strong> None</p> <!-- from DogMedication table MedicationID-->
-                                    <p><strong>Appointment:</strong> April 21, 2025</p>
-                                    <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog1">Emergency Contact</button>
-                                    <div id="emergency-contact-dog1" class="collapse mt-2">
-                                        <div class="card bg-light p-3">
-                                            <h5>Emergency Contact Information</h5>
-                                            <p><strong>Veterinarian:</strong> Alice Johnson</p>
-                                            <p><strong>Phone:</strong> +1 (555) 246-8100</p>
-                                        </div>
-                                    </div>
+                                <h5 class="card-title">Ruby</h5> <!-- from Pet table PetName -->
+                                <p class="card-text">5 years old Corgi</p> <!-- from Pet table Age | BreedID-->
+                                <!-- Button toggles the whole card details -->
+                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog2-full-info">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entire card collapsible content -->
+                    <div id="dog2-full-info" class="collapse">
+                        <div class="card-body text-start">
+                            <p><strong>Gender:</strong> Female</p> <!-- from Pet table Gender -->
+                            <p><strong>Weight:</strong> 15lbs</p> <!-- from Pet table Weight -->
+                            <p><strong>Medication:</strong> Rimadyl</p>  <!-- from DogMedication table MedicationID-->
+                            <p><strong>Appointment:</strong> May 9, 2025</p>
+                            <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog2">Veterinarian Contact</button>
+                            
+                            <!-- Nested collapse for Emergency Contact -->
+                            <div id="emergency-contact-dog2" class="collapse mt-2">
+                                <div class="card bg-light p-3">
+                                    <p><strong>Veterinarian:</strong> Alison Hamilton</p> <!-- from Vets table FirstName and LastName -->
+                                    <p><strong>Phone:</strong> (843)555-9286</p> <!-- from Vets table PhoneNumber -->
+                                    <p><strong>Address:</strong> 123 Allen Road Charleston, South Carolina</p> <!-- from Vets table Address -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Pet Card -->
                 <div class="card pet-card bg-warning bg-opacity-50 text-center">
                     <div class="row g-0">
                         <div class="col-md-7">
-                            <img src="Bark5.jpg" class="card-img pet-img" alt="Dog 2">  <!--img src = from Pet table PhotoURL-->
+                            <img src="dog3.jpg" class="card-img pet-img" alt="Dog 3">  <!--img src = from Pet table PhotoURL-->
                         </div>
                         <div class="col-md-5">
                             <div class="card-body text-start">
-                                <h5 class="card-title">Max</h5>   <!-- from Pet table PetName -->
-                                <p class="card-text">2 years | Husky</p>   <!-- from Pet table Age | BreedID-->
-                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog2-info">More Info</button>
-                                <div id="dog2-info" class="collapse mt-2">
-                                    <p><strong>Weight:</strong> 25lbs</p>   <!-- from Pet table Weight -->
-                                    <p><strong>Medication:</strong> None</p>    <!-- from DogMedication table MedicationID-->
-                                    <p><strong>Appointment:</strong> April 12, 2025</p>
-                                    <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog2">Emergency Contact</button>
-                                    <div id="emergency-contact-dog2" class="collapse mt-2">
-                                        <div class="card bg-light p-3">
-                                            <h5>Emergency Contact Information</h5>
-                                            <p><strong>Veterinarian:</strong> Alice Johnson</p>
-                                            <p><strong>Phone:</strong> +1 (555) 246-8100</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h5 class="card-title">Bella</h5> <!-- from Pet table PetName -->
+                                <p class="card-text">1 year old Cocker Spaniel</p> <!-- from Pet table Age | BreedID-->
+                                <!-- Button toggles the whole card details -->
+                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog3-full-info">More Info</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Pet Card -->
-                <div class="card pet-card bg-warning bg-opacity-50 text-center">
-                    <div class="row g-0">
-                        <div class="col-md-7">
-                            <img src="dog3.jpg" class="card-img pet-img" alt="Dog 3">   <!--img src = from Pet table PhotoURL-->
-                        </div>
-                        <div class="col-md-5">
-                            <div class="card-body text-start">
-                                <h5 class="card-title">Bella</h5>   <!-- from Pet table PetName -->
-                                <p class="card-text">1 years | Dobberman</p>    <!-- from Pet table Age | BreedID-->
-                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog3-info">More Info</button>
-                                <div id="dog3-info" class="collapse mt-2">
-                                    <p><strong>Weight:</strong> 25lbs</p>   <!-- from Pet table Weight -->
-                                    <p><strong>Medication:</strong> None</p>    <!-- from DogMedication table MedicationID-->
-                                    <p><strong>Appointment:</strong> May 05, 2025</p>
-                                    <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog3">Emergency Contact</button>
-                                    <div id="emergency-contact-dog3" class="collapse mt-2">
-                                        <div class="card bg-light p-3">
-                                            <h5>Emergency Contact Information</h5>
-                                            <p><strong>Veterinarian:</strong> Alice Johnson</p>
-                                            <p><strong>Phone:</strong> +1 (555) 246-8100</p>
-                                        </div>
-                                    </div>
+
+                    <!-- Entire card collapsible content -->
+                    <div id="dog3-full-info" class="collapse">
+                        <div class="card-body text-start">
+                            <p><strong>Gender:</strong> Female</p> <!-- from Pet table Gender -->
+                            <p><strong>Weight:</strong> 18lbs</p> <!-- from Pet table Weight -->
+                            <p><strong>Medication:</strong> Apoquel</p>  <!-- from DogMedication table MedicationID-->
+                            <p><strong>Appointment:</strong> May 23, 2025</p>
+                            <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog3">Veterinarian Contact</button>
+                            
+                            <!-- Nested collapse for Emergency Contact -->
+                            <div id="emergency-contact-dog3" class="collapse mt-2">
+                                <div class="card bg-light p-3">
+                                    <p><strong>Veterinarian:</strong> Alison Hamilton</p>  <!-- from Vets table FirstName and LastName -->
+                                    <p><strong>Phone:</strong> (843)555-9286</p> <!-- from Vets table PhoneNumber -->
+                                    <p><strong>Address:</strong> 123 Allen Road Charleston, South Carolina</p> <!-- from Vets table Address -->
                                 </div>
                             </div>
                         </div>
@@ -153,15 +181,12 @@
         </div>
     </div>
 
-    <!-- User Info -->
-    <div class="container mt-4">
-        <div class="card shadow p-4">
-            <h1 class="text-center">Profile Info</h1>
-            <p><strong>Name:</strong> (Pulled from user database)</p>
-            <p><strong>Phone:</strong> (Pulled from user database)</p>
-            <p><strong>Email:</strong> (Pulled from user database)</p>
-            <a href="profile.html">Edit Profile</a>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Barkive. All rights reserved.</p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
         </div>
-    </div>
+    </footer>
 </body>
 </html>

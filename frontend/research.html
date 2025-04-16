@@ -13,6 +13,14 @@
         .navbar-nav .nav-link:hover {
         color: #007bff !important;
         }
+        .custom-modal-size {
+        max-width: 800px;
+        }
+        footer {
+        background-color: #F1E8E3;
+        padding: 20px 0;
+        text-align: center;
+        }
     </style>
 </head>
 
@@ -93,9 +101,10 @@
         </div>
      </div>
 </div>
+
     <!-- PET Modal -->
     <div class="modal fade" id="learnMoreModalPet" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog custom-modal-size">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="learnMoreModalLabel">More Info</h5>
@@ -115,6 +124,12 @@
                     <p><strong>Shedding:</strong> <span id="modalShedding"></span> <span> - </span><span id="modalSheddingValue"></span></p>
                     <br>
                     <h4>Recommended Insurances</h4>
+                    <p> These insurances would help cover for medical needs that an American Foxhound would need treatment or medication for such as hip dysplasia, ear infections, hypothyrodism, dental illnesses, and allergies.</p>
+                    <ol>
+                        <li> <a href="https://www.aspcapetinsurance.com/pet-insurance-plan/"> ASPCA</a></li>
+                        <li> <a href="https://www.prudentpet.com/v4/"> Prudent Pet</a> </li>
+                        <li> <a href="http://https://www.embracepetinsurance.com/compare">Embrace</a></li>
+                    </ol>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -147,6 +162,14 @@
             </div>
         </div>
     </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Barkive. All rights reserved.</p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
     <script>
         // Function to update modal content
         function updateModalContentPet(breed, description, minHeight, maxHeight, minWeight, maxWeight, minLife, maxLife, demeanor, demeanorValue, trainability, trainabilityValue, energy, energyValue, shedding, sheddingValue) {
