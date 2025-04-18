@@ -63,10 +63,11 @@
                 <div class="row align-items-center">
                     <!-- Left Side: Profile Information -->
                     <div class="col-md-8">
-                        <p><strong>Name:</strong> Joe Medina </p> <!-- from Users table-->
+                        <p><strong>Name:</strong> Sophie Johnson </p> <!-- from Users table-->
                         <p><strong>Phone:</strong> (803)123-4567</p> <!-- from Users table-->
-                        <p><strong>Email:</strong> joemedina12@gmail.com</p> <!-- from Users table email-->
-                        <p><strong>Password:</strong> barkive1!</p> <!-- from Users table passsword-->
+                        <p><strong>Email:</strong> sophiejohnson@gmail.com</p> <!-- from Users table email-->
+                        <p><strong>Password:</strong>
+                            <input type="password" value="barkive1!" readonly style="border:none; background:none;" /></p> <!-- from Users table passsword-->
                         <p><strong>Created:</strong> 03/04/2025</p> <!-- from Users table createdAt-->
                         <p><strong>Role:</strong> User</p> <!-- from Users table userRole-->
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</a>
@@ -115,43 +116,6 @@
                             <button class="btn btn-primary me-2" type="button">Edit Pet</button>
                             <!-- Nested collapse for Emergency Contact -->
                             <div id="emergency-contact-dog1" class="collapse mt-2">
-                                <div class="card bg-light p-3">
-                                    <p><strong>Veterinarian:</strong> Alison Hamilton</p> <!-- from Vets table FirstName and LastName -->
-                                    <p><strong>Phone:</strong> (843)555-9286</p> <!-- from Vets table PhoneNumber -->
-                                    <p><strong>Address:</strong> 123 Allen Road Charleston, South Carolina</p> <!-- from Vets table Address -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pet Card -->
-                <div class="card pet-card bg-warning bg-opacity-50 text-center">
-                    <div class="row g-0">
-                        <div class="col-md-7">
-                            <img src="bark4.jpg" class="card-img pet-img" alt="Dog 2">  <!--img src = from Pet table PhotoURL-->
-                        </div>
-                        <div class="col-md-5">
-                            <div class="card-body text-start">
-                                <h5 class="card-title">Ruby</h5> <!-- from Pet table PetName -->
-                                <p class="card-text">5 years old Corgi</p> <!-- from Pet table Age | BreedID-->
-                                <!-- Button toggles the whole card details -->
-                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dog2-full-info">More Info</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Entire card collapsible content -->
-                    <div id="dog2-full-info" class="collapse">
-                        <div class="card-body text-start">
-                            <p><strong>Gender:</strong> Female</p> <!-- from Pet table Gender -->
-                            <p><strong>Weight:</strong> 15lbs</p> <!-- from Pet table Weight -->
-                            <p><strong>Medication:</strong> Rimadyl</p>  <!-- from DogMedication table MedicationID-->
-                            <p><strong>Appointment:</strong> May 9, 2025</p>
-                            <button class="btn btn-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#emergency-contact-dog2">Veterinarian Contact</button>
-                            <button class="btn btn-primary me-2" type="button">Edit Pet</button>
-                            <!-- Nested collapse for Emergency Contact -->
-                            <div id="emergency-contact-dog2" class="collapse mt-2">
                                 <div class="card bg-light p-3">
                                     <p><strong>Veterinarian:</strong> Alison Hamilton</p> <!-- from Vets table FirstName and LastName -->
                                     <p><strong>Phone:</strong> (843)555-9286</p> <!-- from Vets table PhoneNumber -->
@@ -218,7 +182,7 @@
                     <form>
                         <div class="mb-3">
                             <label for="editName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="editName" value="Joe Medina">
+                            <input type="text" class="form-control" id="editName" value="Sophie Johnson">
                         </div>
                         <div class="mb-3">
                             <label for="editPhone" class="form-label">Phone</label>
@@ -226,7 +190,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="editEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="editEmail" value="joemedina12@gmail.com">
+                            <input type="email" class="form-control" id="editEmail" value="sophiejohnson@gmail.com">
                         </div>
                         <div class="mb-3">
                             <label for="editPassword" class="form-label">Password</label>
