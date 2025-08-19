@@ -2,6 +2,14 @@
 
 Barkive is your one-stop shop for managing all your dog's needs. From organizing veterinary records to accessing breed-specific care information and insurance planning. Barkive centralizes and simplifies pet care and helps you keep your furry friend happy and healthy. 
 
+Demo video: https://www.youtube.com/watch?v=iy9cxeGWu2o&ab_channel=CSDepartmentCofC
+
+Featured in Harbor Walk After 5: https://charleston.edu/compsci/experiential-learning/hwa5/hwa5-2025.php
+
+## **Acknowledgements** 
+
+Thank you to Booz Allen Hamilton for sponsoring and being the client for our project. Your guidance has been invaluable. 
+
 ## **Core Features**  
 
 - **Breed Search Functionality**:
@@ -52,4 +60,4 @@ Once the language and framework are finalized, the setup and installation proces
    git pull origin main
    ```
 
-Last edited: Wednesday, January 22nd at 1:20 PM (EST).
+Last edited: Tuesday, August 19th at 5:17 PM (EST).
